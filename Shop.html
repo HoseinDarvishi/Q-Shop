@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./Css/tailwind.min.css">
+   <link rel="stylesheet" href="./Css/vazir.css">
+   <link rel="stylesheet" href="./src/Icons/fontawesome/css/all.min.css">
+   <link rel="stylesheet" href="./Css/style.css">
+   <title>کیوشاپ | فروشگاه </title>
+</head>
+
+<body>
+   <div class="all">
+      <div>
+         <!-- ? Header -->
+         <header class="header-container">
+            <div class="header Container">
+               <div class="header-info">QShop.In</div>
+               <div class="header-left">
+                  <form action="javascript:void(0)" class="search-box">
+                     <input type="text" placeholder="جستجو...">
+                     <button type="submit"><i class="fas fa-search"></i></button>
+                  </form>
+                  <i class="cart fas fa-shopping-cart"><span>2</span></i>
+                  <i class="user fas fa-user-circle"></i>
+               </div>
+               <details>
+                  <summary><i class="menu fas fa-grip-lines"></i></summary>
+                  <ul>
+                     <li><a href="#">صفحه اصلی</a></li>
+                     <li><a href="#">دسته بندی</a></li>
+                     <li><a href="#">تخفیفات امروز</a></li>
+                     <li><a href="#">وبلاگ</a></li>
+                     <li><a href="#">اخبار فروشگاه</a></li>
+                     <li><a href="#">تماس با ما</a></li>
+                     <li><a href="#">درباره ما</a></li>
+                     <li>
+                        <div class="search-box">
+                           <input type="text" placeholder="جستجو...">
+                           <i class="fas fa-search"></i>
+                        </div>
+                     </li>
+                  </ul>
+               </details>
+            </div>
+         </header>
+
+         <!--? SubHeader  -->
+         <div class="sub-header Container">
+            <div class="right-sub">
+               <ul>
+                  <li><a href="./index.html">صفحه اصلی</a></li>
+                  <li class="active"><a href="./Shop.html">فروشگاه</a></li>
+                  <li><a href="#">دسته بندی</a></li>
+                  <li><a href="#">تخفیفات امروز</a></li>
+               </ul>
+            </div>
+            <div class="left-sub">
+               <ul>
+                  <li><a href="#">وبلاگ</a></li>
+               </ul>
+            </div>
+         </div>
+
+         <main role="main" id="shop-main">
+            <div class="Container">
+
+               <!--! Search Section -->
+               <section class="search-section p-2">
+                  <div class="shop-search bg-white rounded-md ">
+                     <h3 id="SearchHider"
+                        class="transition-all cursor-pointer bg-gray-100 hover:bg-gray-200 font-bold flex justify-between p-2 items-center px-5 rounded-md">
+                        جستجو در محصولات <i class="fas fa-arrow-down"></i></h3>
+                     <form id="ShopSearchForm" action="javascript:void(0)" class="p-7 transition-all overflow-hidden">
+                        <div class="search-form flex flex-col md:flex-row gap-3">
+
+                           <div class="flex gap-5">
+                              <div class="search-item category-search flex flex-col">
+                                 <label class="mb-3">دسته بندی :</label>
+                                 <select class="" name="category">
+                                    <option>همه </option>
+                                    <option value="0">لوازم خانگی</option>
+                                    <option value="1">پوشاک</option>
+                                    <option value="2">خودرو</option>
+                                    <option value="3">ابزار</option>
+                                    <option value="4">دکوراسیون</option>
+                                 </select>
+                                 <span></span>
+                              </div>
+
+                              <div class="search-item name-search flex flex-col">
+                                 <label class="mb-3">جستجوی متنی : </label>
+                                 <input type="text" placeholder="جستجوی متنی ...">
+                                 <span></span>
+                              </div>
+                           </div>
+
+                           <div class="price-search flex flex-col mt-4 md:mt-0">
+
+                              <label class="mb-3">قیمت</label>
+                              <div class="flex gap-3">
+                                 <div class="search-item min-price-search flex flex-col ">
+                                    <div class="flex gap-2 items-center">
+                                       <label>از:</label>
+                                       <input type="number" min="0" step="10000" placeholder="تومان">
+                                    </div>
+                                    <span></span>
+                                 </div>
+
+                                 <div class="search-item max-price-search flex flex-col">
+                                    <div class="flex gap-2 items-center">
+                                       <label>تا:</label>
+                                       <input type="number" min="0" step="10000" placeholder="تومان">
+                                    </div>
+                                    <span></span>
+                                 </div>
+                              </div>
+
+                           </div>
+
+                        </div>
+
+                        <button
+                           class="bg-green-500 py-1.5 px-10 mt-7 rounded-md text-white shadow-md hover:bg-green-600 transition-all"
+                           type="submit">جستجو</button>
+                     </form>
+                  </div>
+               </section>
+
+               <!--! Products -->
+               <div class="p-2">
+                  <div class="box-content my-5 divider">
+                     <h3>محصولات</h3>
+                     <div class="line-fade"></div>
+                  </div>
+
+                  <div class="product-section rounded-md shadow">
+
+                     <div class="filter-setting p-3 border-b-2 border-gray-200 mb-1">
+                        <form action="javascript:void(0)">
+                           <label>فیلتر : </label>
+                           <select name="product-filter">
+                              <option>مرتبط ترین</option>
+                              <option>جدیدترین</option>
+                              <option>قدیمی ترین</option>
+                              <option>گران ترین</option>
+                              <option>ارزانترین</option>
+                              <option>بیشترین تخفیف</option>
+                              <option>کمترین تخفیف</option>
+                           </select>
+                        </form>
+                     </div>
+
+                     <div class="products-container p-2">
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/Beats-Headphone1.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/shoes-1.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/shoes-4.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/Shoes-3.jpeg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/Laptop-1.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/Laptop-2.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/headphones1.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/Laptop-2.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/Laptop-1.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/Beats-Headphone1.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/Beats-Headphone1.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/shoes-1.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/shoes-4.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/Shoes-3.jpeg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/Laptop-1.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/Laptop-2.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/headphones1.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/Laptop-2.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/Laptop-1.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                        <div class="product-container">
+                           <div class="product p-2 text-center border border-gray-300 rounded-md ">
+                              <div class="product-image rounded-md overflow-hidden">
+                                 <img src="./src/images/Beats-Headphone1.jpg">
+                              </div>
+                              <p class="box-content product-title font-bold my-3">هدفون Beats مدل B-10</p>
+                              <div class="price">
+                                 <p class="discounted-price font-bold text-red-900">194,000</p>
+                                 <p class="origin-price line-through text-sm text-gray-500">200,000</p>
+                              </div>
+                              <div class="box-content product-btns mt-4 flex justify-between items-center">
+                                 <a href="javascript:void(0)"
+                                    class="btn-buy bg-green-500 text-gray-50 py-1 rounded-full mx-1 shadow-md hover:bg-green-700 transition-all">خرید</a>
+                                 <a href="javascript:void(0)"
+                                    class="btn-favorite text-gray-50 bg-pink-800 inline-flex justify-center shadow-md items-center rounded-full p-2 mx-1 transition-all hover:bg-white hover:text-pink-800 border border-white hover:border-pink-800"><i
+                                       class="fas fa-heart"></i></a>
+                              </div>
+                              <div class="product-discount-rate">3% </div>
+                           </div>
+                        </div>
+
+                     </div>
+
+                     <div class="pagination border-t-2 border-gray-200 p-3 mt-1 flex justify-between items-center">
+
+                        <a title="قبل" class="px-3 py-2 flex justify-center items-center border rounded-md border-gray-300 hover:bg-gray-100" href="javascript:void(0)"><i class="fas fa-arrow-right"></i></a>
+
+                        <ul class="pagination-list border border-gray-300 rounded-md shadow-sm w-auto flex justify-center items-center overflow-hidden">
+                           <li class="border-r border-l  border-gray-300 hover:bg-gray-100 active"><a class="px-3 pt-2 pb-1 flex justify-center items-center" href="javascript:void(0)">1</a></li>
+                           <li class="border-r border-l  border-gray-300 hover:bg-gray-100"><a class="px-3 pt-2 pb-1 flex justify-center items-center" href="javascript:void(0)">2</a></li>
+                           <li class="border-r border-l  border-gray-300 hover:bg-gray-100"><a class="px-3 pt-2 pb-1 flex justify-center items-center" href="javascript:void(0)">3</a></li>
+                           <li class="border-r border-l  border-gray-300 hover:bg-gray-100"><a class="px-3 pt-2 pb-1 flex justify-center items-center" href="javascript:void(0)">4</a></li>                           
+                        </ul>
+
+                        <a title="بعد" class="px-3 py-2 flex justify-center items-center border rounded-md border-gray-300 hover:bg-gray-100" href="javascript:void(0)"><i class="fas fa-arrow-left"></i></a>
+
+                     </div>
+
+                  </div>
+               </div>
+
+            </div>
+         </main>
+      </div>
+
+      <!--! Footer -->
+      <footer class="shop-footer">
+
+         <div class="footer Container">
+
+
+            <div class="links">
+               <ul>
+                  <li><a href="javascript:void(0)">وبلاگ</a></li>
+                  <li><a href="javascript:void(0)">دسته بندی</a></li>
+                  <li><a href="javascript:void(0)">تماس با ما</a></li>
+                  <li><a href="javascript:void(0)">درباره ما</a></li>
+               </ul>
+            </div>
+
+
+            <div class="blog">
+               <p class="mb-3 mt-1">عضویت در خبرنامه</p>
+               <form class="blog-form" action="javascript:void(0)">
+                  <input type="email" placeholder="ایمیل خود  را وارد کنید">
+                  <button class="bg-green-500 text-gray-50 hover:bg-green-600  transition-all"
+                     type="submit">عضویت</button>
+               </form>
+            </div>
+
+
+            <div class="logos">
+               <img src="./src/images/enamad.png" alt="enamad-logo">
+               <img src="./src/images/samandehi.png" alt="samandehi-logo">
+            </div>
+         </div>
+
+         <div class="copy-right bg-gray-100 py-3">
+            <p class="text-center font-light text-gray-900 font-bold">تمام حقوق سایت برای کیوشاپ محفوظ است</p>
+         </div>
+      </footer>
+
+   </div>
+
+   <script src="./Js/jquery-3.6.0.min.js"></script>
+   <script src="./Js/shop.js"></script>
+</body>
+
+</html>
