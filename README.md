@@ -8,4 +8,4 @@
 Html , Css , Sass , Javascript , JQuery , TailwindCss , Bootstrap , Splide.js 
 
 #### Back-end :
-C# , Asp.Net Core
+C# , Asp.Net Core , SQL Server
